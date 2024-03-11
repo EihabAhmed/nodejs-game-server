@@ -9,9 +9,15 @@ const io = require("socket.io")(server);
 
 io.on("connection", (client) => {
   console.log("connection received");
+
   client.on("new_message", (score) => {
     console.log(`new message received: ${score}`);
     io.emit("broadcast", score);
+  });
+
+  client.on("new_message2", (score) => {
+    console.log(`new message received2: ${score}`);
+    io.emit("broadcast2", score);
   });
 });
 
