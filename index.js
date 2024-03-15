@@ -12,12 +12,16 @@ io.on("connection", (client) => {
 
   client.on("new_message", (score) => {
     console.log(`new message received: ${score}`);
-    io.emit("broadcast", score);
+    for (let i = 0; i < 3; i++) {
+      io.emit("broadcast", score);
+    }
   });
 
   client.on("new_message2", (score) => {
     console.log(`new message received2: ${score}`);
-    io.emit("broadcast2", score);
+    for (let i = 0; i < 3; i++) {
+      io.emit("broadcast2", score);
+    }
   });
 });
 
